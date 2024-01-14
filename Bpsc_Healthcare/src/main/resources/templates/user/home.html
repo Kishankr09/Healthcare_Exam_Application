@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Home Page</title>
+	 <style>
+
+    @media print {
+      button#printButton {
+        display: none;
+      }
+    }
+ 	body {
+		 padding-left: 60px;
+	 }
+  </style>
+</head>
+
+<body>
+	
+	<img style="margin-left: 210px; width: auto; height: 65px; " src="https://onlinebpsc.bihar.gov.in/resources/images/logo.png" alt="">
+
+	<a href="/logout">Logout</a>
+	&nbsp; &nbsp;<button id="printButton" onclick="printPage()">Print</button>
+
+
+	<h3>Full Name : [[${user.fullName}]]</h3>
+	<h3>Father Name : [[${user.fatherName}]]</h3>
+	<h3>Husband Name : [[${user.husbandName}]]</h3>
+	<h3>Mother Name : [[${user.motherName}]]</h3>
+	<h3>[[${user.idType}]] : [[${user.idNo}]]</h3>
+	<h3>Are you a citizen of India? : [[${user.citizenIndia}]]</h3>
+	<h3>Are you a Permanent Resident(Origin) of State of Bihar? : [[${user.permanentResident}]]</h3>
+	<h3>Address : [[${user.address}]]</h3>
+	<h3>State : [[${user.stateNames}]]</h3>
+	<h3>District : [[${user.district}]]</h3>
+	<h3>Pin : [[${user.pin}]]</h3>
+	<h3>Residence Certificate Details</h3>
+	<h3>Certificate No. : [[${user.certificateNo}]]</h3>
+	<h3>Are you Reserved Category : [[${user.reservedCategory}]]</h3>
+	<h3>Category : [[${user.categoryCode}]]</h3>
+	<h3>Caste Name: [[${user.casteCertificateDetails}]]</h3>
+	<h3>Qualification : [[${user.qualification}]]</h3>
+	<h3>Marital Status : [[${user.maritalStatus}]]</h3>
+	<h3>Gender : [[${user.gender}]]</h3>
+	<h3>Are you a grand son/grand daughter of freedom fighters as per advertisement?: [[${user.freedomFighter}]]</h3>
+	<h3>codes as per your qualification: [[${user.qualificationCatogory}]]</h3>
+	<h3>Email : [[${user.email}]]</h3>
+	<h3>Mobile No : [[${user.mobileNo}]]</h3>
+</body>
+
+  <script>
+    function printPage() {
+      window.print();
+    }
+  </script>
+  
+</html>

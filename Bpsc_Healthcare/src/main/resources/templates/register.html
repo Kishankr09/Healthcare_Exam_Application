@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" th:replace="base::layout(~{::section})">
+
+<head>
+	<meta charset="ISO-8859-1">
+	<title>Registration Page</title>
+
+</head>
+
+<body>
+	<section>
+
+		<div class="container p-3">
+			<div class="row">
+				<div class="col-md-6 offset-md-3">
+					<div class="card">
+						<div class="card-header text-center fs-4">Register Page</div>
+
+						<th:block th:if="${session.msg}">
+							<p class="text-center fs-4 text-success">[[${session.msg}]]</p>
+							<th:block th:text="${#session.removeAttribute('msg')}"></th:block>
+						</th:block>
+
+						<div class="card-body">
+							<form action="createUser" method="post">
+								<div class="mb-3">
+									<label>Enter Full Name</label>
+									<input type="text" name="fullName" class="form-control">
+								</div>
+								<div class="mb-3">
+									<label>Father's Name:</label>
+									<input type="text" name="fatherName" class="form-control">
+								</div>
+								<div class="mb-3">
+									<label>Husband's Name:</label>
+									<input type="text" name="husbandName" class="form-control">
+								</div>
+
+								<div class="mb-3">
+									<label>Mother's Name:</label>
+									<input type="text" name="motherName" class="form-control">
+								</div>
+								<div class="mb-3">
+									<label>Select ID Type:</label>
+									<select id="idType" name="idType" class="form-control">
+										<option value="aadhar">Aadhar No.</option>
+										<option value="pan">Pan Card No.</option>
+										<option value="driving">Driving Licence No.</option>
+									</select>
+								</div>
+
+								<div class="mb-3">
+									<label>Identification No.:</label>
+									<input type="text" name="idNo" class="form-control">
+								</div>
+
+								<div class="mb-3">
+									<label>Are you a citizen of India?:</label>
+									<select id="citizenIndia" name="citizenIndia" class="form-control">
+										<option value="yes">Yes</option>
+										<option value="no">No</option>
+									</select>
+								</div>
+
+								<div class="mb-3">
+									<label>Are you a Permanent Resident(Origin) of State of
+										Bihar?</label>
+									<select id="permanentResident" name="permanentResident" class="form-control">
+										<option value="yes">Yes</option>
+										<option value="no">No</option>
+									</select>
+								</div>
+								<div class="mb-3">
+									<label>Enter Address</label>
+									<input type="text" name="address" class="form-control">
+								</div>
+								<div class="mb-3">
+									<label>Select State Names:</label>
+									<select id="stateNames" name="stateNames" class="form-control">
+										<option value="andhra_pradesh">Andhra Pradesh</option>
+										<option value="arunachal_pradesh">Arunachal Pradesh</option>
+										<option value="assam">Assam</option>
+										<option value="bihar">Bihar</option>
+										<option value="chhattisgarh">Chhattisgarh</option>
+										<option value="goa">Goa</option>
+										<option value="gujarat">Gujarat</option>
+										<option value="haryana">Haryana</option>
+										<option value="himachal_pradesh">Himachal Pradesh</option>
+										<option value="jammu_kashmir">Jammu and Kashmir</option>
+										<option value="jharkhand">Jharkhand</option>
+										<option value="karnataka">Karnataka</option>
+										<option value="kerala">Kerala</option>
+										<option value="madhya_pradesh">Madhya Pradesh</option>
+										<option value="maharashtra">Maharashtra</option>
+										<option value="manipur">Manipur</option>
+										<option value="meghalaya">Meghalaya</option>
+										<option value="mizoram">Mizoram</option>
+										<option value="nagaland">Nagaland</option>
+										<option value="odisha">Odisha</option>
+										<option value="punjab">Punjab</option>
+										<option value="rajasthan">Rajasthan</option>
+										<option value="sikkim">Sikkim</option>
+										<option value="tamil_nadu">Tamil Nadu</option>
+										<option value="telangana">Telangana</option>
+										<option value="tripura">Tripura</option>
+										<option value="uttar_pradesh">Uttar Pradesh</option>
+										<option value="uttarakhand">Uttarakhand</option>
+										<option value="west_bengal">West Bengal</option>
+										<option value="andaman_nicobar_islands">Andaman and Nicobar Islands</option>
+										<option value="chandigarh">Chandigarh</option>
+										<option value="dadra_nagar_haveli">Dadra and Nagar Haveli</option>
+										<option value="daman_diu">Daman and Diu</option>
+										<option value="delhi">Delhi</option>
+										<option value="lakshadweep">Lakshadweep</option>
+										<option value="puducherry">Puducherry</option>
+									</select>
+								</div>
+
+								<div class="mb-3">
+									<label for="district">District:</label>
+									<input type="text" name="district" class="form-control">
+								</div>
+
+								<div class="mb-3">
+									<label>Pin:</label>
+									<input type="text" name="pin" class="form-control">
+								</div>
+
+								<div class="mb-3">
+									<label>Enter Permanent
+										Residence Certificate Details:</label>
+								</div>
+
+								<div class="mb-3">
+									<label>Certificate No.:</label>
+									<input type="text" name="certificateNo" class="form-control">
+								</div>
+
+
+								
+								<div class="mb-3">
+									<label>Do you belong to any Reserved Category?</label>
+									<select id="reservedCategory" name="reservedCategory" class="form-control">
+										<option value="yes">Yes</option>
+										<option value="no">No</option>
+									</select>
+								</div>
+
+								<div class="mb-3">
+									<label>If yes, then select the Category Code:</label>
+									<select id="categoryCode" name="categoryCode" class="form-control">
+										<option value="ews">EWS</option>
+										<option value="sc">SC</option>
+										<option value="st">ST</option>
+										<option value="ebc">EBC</option>
+										<option value="bc">BC</option>
+									</select>
+								</div>
+
+
+
+								<div class="mb-3">
+									<label>Enter Caste Certificate Details:</label>
+									<input type="text" name="casteCertificateDetails" class="form-control">
+								</div>
+
+
+								<div class="mb-3">
+									<label>Enter Qualification</label>
+									<input type="text" name="qualification" class="form-control">
+								</div>
+
+								<div class="mb-3">
+									<label>Marital Status:</label>
+									<select id="maritalStatus" name="maritalStatus" class="form-control">
+										<option value="married">Married</option>
+										<option value="unmarried">Unmarried</option>
+										<option value="others">Others</option>
+									</select>
+								</div>
+
+								<div class="mb-3">
+									<label>Gender:</label>
+									<select id="gender" name="gender" class="form-control">
+										<option value="male">Male</option>
+										<option value="female">Female</option>
+										<option value="thirdGender">Third Gender</option>
+									</select>
+								</div>
+
+								<div class="mb-3">
+									<label>Are you a grand son/grand daughter of freedom fighters
+										as per
+										advertisement?:</label>
+									<select id="freedomFighter" name="freedomFighter" class="form-control">
+										<option value="yes">Yes</option>
+										<option value="no">No</option>
+									</select>
+								</div>
+
+								<div class="mb-3">
+									<label>Choose one of these codes as per your
+										qualification:</label>
+									<select id="qualificationCatogory" name="qualificationCatogory"
+										class="form-control">
+										<option value="DA DNB">डीए डीएम / डीएम बी</option>
+										<option value="MCH DNB">एमसीएच । डीएनबी</option>
+										<option value="MD DNB">MD / DNB (Preventive & Social Medicine) Minh 3 years post
+											MD/ONG
+											experience in preventive onalogy Hospital in a teaching</option>
+									</select>
+								</div>
+								<div class="mb-3">
+									<label>E-Mail:</label>
+									<input type="email" name="email" class="form-control">
+								</div>
+								<div class="mb-3">
+									<label>Mobile No:</label>
+									<input type="text" name="mobileNo" class="form-control">
+								</div>
+
+								<div class="mb-3">
+									<label>Enter Password</label>
+									<input type="text" name="password" class="form-control">
+								</div>
+								<button class="btn btn-primary col-md-12">Register</button>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+
+		</div>
+
+
+
+	</section>
+
+
+
+</body>
+
+</html>
